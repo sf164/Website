@@ -1,0 +1,93 @@
+* {
+    background-color: rgb(27, 27, 27);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: rgb(239, 229, 229);
+}
+
+br {
+    color: rgb(27, 27, 27);
+    background-color: rgb(27, 27, 27);
+}
+header {
+    border: 1px border black;
+    margin-bottom: 40px;
+    padding: 40px;
+    text-align: center;
+    width: 100%;
+    height: 20px;
+    font-size: 20px;
+    position: fixed;
+    z-index: 1;
+
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color: rgb(27, 27, 27);
+  }
+
+  header a {
+    border-radius: 3px;
+    color: rgb(159, 155, 155);
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+    text-decoration: none;
+    position: relative;
+    bottom: 20px; 
+}
+
+header a:hover{
+    color:rgb(238, 236, 236)
+}
+
+#courses {
+    color: rgb(254, 254, 254);
+}
+
+main {
+    margin-bottom: 30px;
+    padding-top: 100px;
+}
+
+hr {
+    color: white;
+    margin-bottom: 10px;
+    width: 100%;
+}
+.course-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding-left: 20px;
+  }
+  
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+  
+.course-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 20px;
+    padding: 10px;
+    border-left: 4px solid white;
+}
+  
+.course {
+    display: contents; /* Keeps content in two-column flow */
+}
+  
+.code {
+    font-weight: bold;
+}
+  
+.instructor {
+    text-align: right;
+}
+  
+.purple {
+    color: purple;
+}

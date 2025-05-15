@@ -1,0 +1,112 @@
+* {
+    background-color: rgb(27, 27, 27);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: rgb(239, 229, 229);
+}
+
+header {
+    border: 1px border black;
+    margin-bottom: 40px;
+    padding: 40px;
+    text-align: center;
+    width: 100%;
+    height: 20px;
+    font-size: 20px;
+    position: fixed;
+    z-index: 1;
+
+}
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color: rgb(27, 27, 27);
+  }
+
+header a {
+    border-radius: 3px;
+    color: rgb(159, 155, 155);
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+    text-decoration: none;
+    position: relative;
+    bottom: 20px; 
+}
+
+header a:hover{
+    color:rgb(238, 236, 236)
+}
+
+#home {
+   color: white;
+}
+
+main {
+    margin-bottom: 30px;
+    padding-top: 100px;
+}
+
+hr {
+    background-color: rgb(246, 240, 232);
+}
+
+footer h3{
+    font-size: 10px;
+}
+br {
+    color: rgb(27, 27, 27);
+    background-color: rgb(27, 27, 27);
+}
+
+p {
+    margin: 20px 20px 20% 10%;
+    line-height: 1.8;
+}
+
+
+.front {
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    height: 400px;
+    background-image: url('background.png');
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+}
+
+.front h1{
+    position: relative;
+    top: 180px;
+    background: transparent;
+}
+
+#front-buttons {
+    position: relative;
+    top: 200px;
+    background: transparent;
+}
+
+.b2 {
+    background: transparent;
+    border: 1.5px solid rgb(255, 249, 249);
+    padding: 15px;
+    border-radius: 8px;
+    color:rgb(254, 250, 250);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.b2:hover {
+    color:rgb(159, 155, 155)
+}
+
+.description{
+    background: transparent;
+    color:rgb(255, 249, 249);
+    text-align: center;
+    position: relative;
+    top: 170px;
+    font-weight: 600;
+}
