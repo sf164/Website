@@ -14,7 +14,7 @@ header {
     border: 1px border black;
     margin-bottom: 40px;
     padding: 40px;
-    text-align: center;
+    text-align: right;
     width: 100%;
     height: 20px;
     font-size: 20px;
@@ -45,6 +45,10 @@ header a:hover{
 
 #courses {
     color: rgb(254, 254, 254);
+}
+
+.course a{
+    text-decoration: none;
 }
 
 main {
