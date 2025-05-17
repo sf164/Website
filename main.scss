@@ -165,3 +165,64 @@ p {
     font-weight: 600;
 }
 
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+  align-items: start;
+}
+
+.card {
+  background-color: #1a1a1a;
+  border: 2px solid #333;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.card.full {
+  grid-column: span 2;
+}
+
+.card.full p {
+  max-width: 100%;
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+
+.card h2 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tags span {
+  background-color: #000;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid #444;
+  font-size: 0.9rem;
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .card.full {
+    grid-column: span 1;
+  }
+}
