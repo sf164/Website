@@ -425,6 +425,12 @@ ul {
     transition: transform 600ms var(--ease-out);
 }
 
+/* a drawing made for the site fills its frame, with no paper border */
+.project-figure.is-drawing {
+    padding: 0;
+    background: var(--surface);
+}
+
 .project-text {
     grid-column: 9 / span 4;
 }
