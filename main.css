@@ -542,6 +542,194 @@ ul {
     text-align: right;
 }
 
+/* ---------- Courses page ---------- */
+.site-nav a[aria-current="page"] {
+    color: var(--accent);
+}
+
+.hero.hero-short {
+    min-height: clamp(560px, 80svh, 840px);
+}
+
+.page-title {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: clamp(4rem, 0.5rem + 15vw, 14.5rem);
+    line-height: 0.84;
+    letter-spacing: -0.005em;
+    text-transform: uppercase;
+}
+
+.hero-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 56px;
+    margin-top: 40px;
+}
+
+.hero-stats div {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 2px;
+}
+
+.hero-stats dd {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: clamp(2.75rem, 2rem + 2vw, 3.5rem);
+    line-height: 1;
+    color: var(--accent);
+}
+
+.hero-stats dt {
+    font-size: var(--step-small);
+    font-weight: 600;
+}
+
+.year {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 40px 64px;
+    padding: var(--section-gap) var(--margin) 0;
+}
+
+.hero + .year {
+    padding-top: clamp(72px, 8vw, 128px);
+}
+
+.year-panel {
+    flex: 0 1 420px;
+    position: sticky;
+    top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.year-title {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: clamp(5.5rem, 3rem + 6vw, 9.5rem);
+    line-height: 0.84;
+    letter-spacing: -0.005em;
+    text-transform: uppercase;
+}
+
+.year-head {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.year-meta {
+    color: var(--muted);
+}
+
+.year-figure {
+    margin-top: 12px;
+}
+
+.year-figure img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    background: var(--surface);
+}
+
+.year-figure figcaption {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: var(--muted);
+}
+
+.year-courses {
+    flex: 999 1 560px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.course-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 24px;
+    padding: 20px 24px;
+    background: var(--surface);
+    text-decoration: none;
+    transition: background-color 200ms ease, transform 200ms var(--ease-out);
+}
+
+.row-code {
+    flex: 0 0 6.5rem;
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 1.875rem;
+    line-height: 1;
+    color: var(--accent);
+}
+
+.row-name {
+    flex: 1 1 260px;
+    font-weight: 500;
+}
+
+.row-prof {
+    flex: 0 1 auto;
+    font-size: 1rem;
+    color: var(--muted);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    a.course-row:hover {
+        background: #1c2430;
+        transform: translateX(6px);
+    }
+}
+
+@media (max-width: 900px) {
+    .year {
+        row-gap: 56px;
+    }
+
+    .year-panel {
+        position: static;
+        flex-basis: 100%;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 32px;
+    }
+
+    .year-figure {
+        flex: 0 0 46%;
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 560px) {
+    .year-panel {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .year-figure {
+        flex: none;
+        width: 100%;
+    }
+
+    .course-row {
+        padding: 16px;
+    }
+
+    .row-code {
+        flex-basis: 100%;
+        font-size: 1.625rem;
+    }
+}
+
 /* ---------- Motion (only when JS is running) ---------- */
 @media (prefers-reduced-motion: no-preference) {
     .js .hero-image {

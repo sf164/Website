@@ -1,232 +1,198 @@
 <!DOCTYPE html>
+<html lang="en">
 
-<html lang = 'en'>
 <head>
-    <title>Courses</title>
-    <link rel="stylesheet" href="courses-style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Coursework · Shumail Farooqi</title>
+    <meta name="description" content="Five years of mathematics, physics and actuarial science courses taken by Shumail Farooqi at the University of Toronto.">
+    <link rel="preload" href="fonts/big-shoulders.woff" as="font" type="font/woff" crossorigin>
+    <link rel="preload" href="fonts/public-sans.woff" as="font" type="font/woff" crossorigin>
+    <link rel="stylesheet" href="main.css?v=5">
+    <script>document.documentElement.classList.add('js');</script>
+    <script src="main.js?v=5" defer></script>
 </head>
 
 <body>
-    <header>
-        <a href="index.html" id = "home">Home</a>
-        <a href="Projects\projects.html"> Projects</a>
-        <a href="courses.html" id = "courses"> Courses</a>  
+    <header class="site-header">
+        <a class="wordmark" href="./">Shumail Farooqi</a>
+        <nav class="site-nav" aria-label="Main">
+            <a href="Projects/projects.html">Projects</a>
+            <a href="courses.html" aria-current="page">Courses</a>
+            <a href="https://www.linkedin.com/in/shumail-farooqi-07a638296">LinkedIn</a>
+        </nav>
     </header>
+
     <main>
-        <hr>
-    <div class ='course-container'>
-      <h2> Fifth Year </h2>
-      <div class="course-list">
-        <div class="course">
-            <a href="https://artsci.calendar.utoronto.ca/course/act351h1"><p><span class="code">ACT351</span> – Loss Models: From Data to Decisions</p></a>
-            <p class="instructor">Christopher Blier-Wong</p>
-        </div>
-        <div class="course">
-            <a href="https://artsci.calendar.utoronto.ca/course/act460h1"><p><span class="code">ACT460</span> – Stochastic Methods for Finance</p></a>
-            <p class="instructor">Dena Firoozi</p>
-        </div>
-        <div class="course">
-            <a href="https://artsci.calendar.utoronto.ca/course/apm421h1"><p><span class="code">APM421</span> – Mathematical Foundations of Quantum Mechanics and Quantum Information Theory</p></a>
-            <p class="instructor">Israel Michael Sigal</p>
-        </div>
-        <div class="course">
-            <a href="https://artsci.calendar.utoronto.ca/course/apm462h1"><p><span class="code">APM462</span> – Nonlinear Optimization</p></a>
-            <p class="instructor">Aidan Backus</p>
-        </div>
-        <div class="course">
-            <a href="https://artsci.calendar.utoronto.ca/course/cla231h1"><p><span class="code">CLA231</span> – Introduction to Roman History</p></a>
-            <p class="instructor">Michael Dewar</p>
-        </div>
-        <div class="course">
-            <a href="https://artsci.calendar.utoronto.ca/course/act352h1"><p><span class="code">ACT352</span> – Statistical Methods for Actuarial Loss</p></a>
-            <p class="instructor">Xiaodong Lin</p>
-        </div>
-        <div class="course">
-            <a href="https://artsci.calendar.utoronto.ca/course/apm446h1"><p><span class="code">APM446</span> – Applied Nonlinear Equations</p></a>
-            <p class="instructor">Catherine Sulem</p>
-        </div>
-        <div class="course">
-            <a href="https://artsci.calendar.utoronto.ca/course/phy452h1"><p><span class="code">PHY452</span> – Statistical Mechanics</p></a>
-            <p class="instructor">Yong Baek Kim</p>
-        </div>
+        <!-- First screen -->
+        <section class="hero hero-short">
+            <img class="hero-image"
+                src="images/nebula-2000.jpg"
+                srcset="images/nebula-1200.jpg 1200w, images/nebula-2000.jpg 2000w"
+                sizes="100vw"
+                width="2000" height="1158"
+                alt="The Cosmic Cliffs of the Carina Nebula, photographed by the James Webb Space Telescope"
+                fetchpriority="high">
+            <div class="hero-copy">
+                <h1 class="page-title" data-hero>Coursework</h1>
+                <p class="hero-lead" data-hero>Five years of mathematics, physics and actuarial science at the University of Toronto.</p>
+                <dl class="hero-stats" data-hero>
+                    <div><dt>Courses</dt><dd>46</dd></div>
+                    <div><dt>Physics</dt><dd>15</dd></div>
+                    <div><dt>Mathematics</dt><dd>14</dd></div>
+                    <div><dt>Actuarial science &amp; statistics</dt><dd>10</dd></div>
+                    <div><dt>Electives</dt><dd>7</dd></div>
+                </dl>
+            </div>
+        </section>
 
-      </div>
-    </div>
-    <div class ='course-container'>
-      <h2> Senior Year </h2>
-      <div class="course-list">
-        <div class="course">
-            <a href="https://artsci.calendar.utoronto.ca/course/phy456h1"><p><span class="code">PHY456</span> – Quantum Mechanics II</p></a>
-            <p class="instructor">Arun Paramekanti</p>
-        </div>
-        <div class="course">
-            <a href="https://artsci.calendar.utoronto.ca/course/act240h1"><p><span class="code">ACT240</span> – Mathematics of Investment & Credit</p></a>
-            <p class="instructor">Christopher Blier-Wong</p>
-        </div>
-        <div class="course">
-            <a href="https://artsci.calendar.utoronto.ca/course/phy424h1"><p><span class="code"></span> PHY424 – Advanced Physics Laboratory</p></a>
-            <p class="instructor"></p>
-        </div>
-        <div class="course">
-            <a href="https://artsci.calendar.utoronto.ca/course/phl245h1"><p><span class="code"></span>PHL245 – Modern Symbolic Logic</p></a>
-            <p class="instructor">Alex Koo</p>
-        </div>
-        <div class="course">
-            <a href="https://artsci.calendar.utoronto.ca/course/sta257h1"><p><span class="code"></span> STA257– Probability and Statistics I</p></a>
-            <p class="instructor">Jeffrey Rosenthal</p>
-        </div>
-        <div class="course">
-            <a href="https://artsci.calendar.utoronto.ca/course/act245h1"><p><span class="code"></span> ACT245 – Financial Principles for Actuarial Science I</p></a>
-            <p class="instructor">Xiaodong Lin</p>
-        </div>
-        <div class="course">
-            <a href="https://artsci.calendar.utoronto.ca/course/act247h1"><p><span class="code"></span> ACT247 – Introductory Life Contingencies</p></a>
-            <p class="instructor">Basil Singer</p>
-        </div>
-        <div class="course">
-            <a href="https://artsci.calendar.utoronto.ca/course/act348h1"><p><span class="code"></span> ACT348 – Advanced Life Contingencies</p></a>
-            <p class="instructor"></p>
-        </div>
-        <div class="course">
-            <a href="https://artsci.calendar.utoronto.ca/course/act370h1"><p><span class="code"></span> ACT370 – Financial Principles for Actuarial Science II</p></a>
-            <p class="instructor"></p>
-        </div>
-        <div class="course">
-            <a href="https://artsci.calendar.utoronto.ca/course/mat357h1"><p><span class="code"></span> MAT357 – Foundations of Real Analysis</p></a>
-            <p class="instructor">Benjamin Christopher Landon</p>
-        </div>
-        <div class="course">
-            <a href="https://artsci.calendar.utoronto.ca/course/sta261h1"><p><span class="code"></span> STA261 – Probability and Statistics II</p></a>
-            <p class="instructor">Jesse Gronsbell</p>
-        </div>
+        <!-- Fifth year -->
+        <section class="year" aria-labelledby="year-5">
+            <div class="year-panel">
+                <div class="year-head">
+                    <h2 class="year-title" id="year-5" data-reveal>Year 5</h2>
+                    <p class="year-meta" data-reveal>Fifth year · 8 courses</p>
+                </div>
+                <figure class="year-figure" data-reveal>
+                    <img src="images/courses/brownian-paths.jpg" width="880" height="880" loading="lazy"
+                        alt="Many random sample paths of geometric Brownian motion, one highlighted in amber">
+                    <figcaption>Sample paths of geometric Brownian motion, from ACT460</figcaption>
+                </figure>
+            </div>
+            <ul class="year-courses">
+                <li data-reveal><a class="course-row" href="https://artsci.calendar.utoronto.ca/course/act351h1"><span class="row-code">ACT351</span><span class="row-name">Loss Models: From Data to Decisions</span><span class="row-prof">Christopher Blier-Wong</span></a></li>
+                <li data-reveal><a class="course-row" href="https://artsci.calendar.utoronto.ca/course/act352h1"><span class="row-code">ACT352</span><span class="row-name">Statistical Methods for Actuarial Loss</span><span class="row-prof">Xiaodong Lin</span></a></li>
+                <li data-reveal><a class="course-row" href="https://artsci.calendar.utoronto.ca/course/act460h1"><span class="row-code">ACT460</span><span class="row-name">Stochastic Methods for Finance</span><span class="row-prof">Dena Firoozi</span></a></li>
+                <li data-reveal><a class="course-row" href="https://artsci.calendar.utoronto.ca/course/apm421h1"><span class="row-code">APM421</span><span class="row-name">Mathematical Foundations of Quantum Mechanics and Quantum Information Theory</span><span class="row-prof">Israel Michael Sigal</span></a></li>
+                <li data-reveal><a class="course-row" href="https://artsci.calendar.utoronto.ca/course/apm446h1"><span class="row-code">APM446</span><span class="row-name">Applied Nonlinear Equations</span><span class="row-prof">Catherine Sulem</span></a></li>
+                <li data-reveal><a class="course-row" href="https://artsci.calendar.utoronto.ca/course/apm462h1"><span class="row-code">APM462</span><span class="row-name">Nonlinear Optimization</span><span class="row-prof">Aidan Backus</span></a></li>
+                <li data-reveal><a class="course-row" href="https://artsci.calendar.utoronto.ca/course/phy452h1"><span class="row-code">PHY452</span><span class="row-name">Statistical Mechanics</span><span class="row-prof">Yong Baek Kim</span></a></li>
+                <li data-reveal><a class="course-row" href="https://artsci.calendar.utoronto.ca/course/cla231h1"><span class="row-code">CLA231</span><span class="row-name">Introduction to Roman History</span><span class="row-prof">Michael Dewar</span></a></li>
+            </ul>
+        </section>
 
-      </div>
-    </div>
-    <div class="course-container">
-        <h2>Junior Year</h2>
-        <div class="course-list">
-          <div class="course">
-            <a href="https://artsci.calendar.utoronto.ca/course/phy365h1"><p><span class="code">PHY365</span> – Quantum Information.</p></a>
-            <p class="instructor">Daniel James</p>
-          </div>
-          <div class="course">
-            <a href="https://www.physics.utoronto.ca/~phy224_324/phy324/"><p><span class="code">PHY324</span> – Practical Physics II</p></a>
-            <p class="instructor">Brian Wilson </p>
-          </div>
-          <div class="course">
-            <a href="https://artsci.calendar.utoronto.ca/course/mat367h1"><p><span class="code">MAT367</span> – Differential Geometry</p></a>
-            <p class="instructor">Wenyu Pan</p>
-          </div>
-          <div class="course">
-            <a href="https://artsci.calendar.utoronto.ca/course/mat351y1"><p><span class="code">MAT351</span> – Partial Differential Equation</p></a>
-            <p class="instructor">Catherine Sulem</p>
-          </div>
-          <div class="course">
-            <a href = "https://artsci.calendar.utoronto.ca/course/phy354h1"><p><span class="code">PHY354</span> – Advanced Classical Mechanics</p></a>
-            <p class="instructor">Michael Luke</p>
-          </div>
-          <div class="course">
-            <a href="https://artsci.calendar.utoronto.ca/course/phy356h1"><p><span class="code">PHY356</span> – Quantum Mechanics I</p></a>
-            <p class="instructor">John E. Sipe</p>
-          </div>
-          <div class="course">
-            <a href="https://artsci.calendar.utoronto.ca/course/mat354h1"><p><span class="code">MAT354</span> – Complex Analysis I</p></a>
-            <p class="instructor">Wenyu Pan</p>
-          </div>
-          <div class="course">
-            <a hreff="https://artsci.calendar.utoronto.ca/course/phy350h1"><p><span class="code">PHY350</span> – Electromagnetic Theory</p></a>
-            <p class="instructor">Sajeev John</p>
-          </div>
-          <div class="course">
-            <p><span class="code">BIO120</span> – Adaptation & Biodiversity</p>
-            <p class="instructor"></p>
-          </div>
-        </div>
-        <h2>Sophmore Year</h2>
-        <div class="course-list">
-            <div class="course">
-                <p><span class="code">MAT257</span> – Analysis II</p>
-                <p class="instructor">Spyros Alexakis</p>
-              </div>
-              <div class="course">
-                <p><span class="code">MAT267</span> – Advanced Ordinary Differential Equations</p>
-                <p class="instructor"></p>
-              </div>
-              <div class="course">
-                <p><span class="code">PHY250</span> – Electricity & Magnetism</p>
-                <p class="instructor">Nicolas Grisouard</p>
-              </div>
-              <div class="course">
-                <p><span class="code">PHY252</span> – Thermal Physics</p>
-                <p class="instructor">Stephen Julian</p>
-              </div>
-              <div class="course">
-                <p><span class="code">MAT327</span> – Topology</p>
-                <p class="instructor"> Alexander Nabutovsky </p>
-              </div>
-              <div class="course">
-                <p><span class="code">PHY224</span> – Practical Physics I</p>
-                <p class="instructor"> Christopher Lee </p>
-              </div>
-              <div class="course">
-                <p><span class="code">PHY256</span> – Introduction to Quantum Mechanics</p>
-                <p class="instructor"> Aephraim M. Steinberg </p>
-              </div>
-              <div class="course">
-                <p><span class="code">PHY254</span> – Classical Mechanics</p>
-                <p class="instructor"> Nicolas Grisouard </p>
-              </div>
-              <div class="course">
-                <p><span class="code">MAT295</span> – Independent Reading in Math</p>
-                <p class="instructor"> George Elliot </p>
-              </div>
-              <div class="course">
-                <p><span class="code">ENG237</span> – Science Fiction</p>
-                <p class="instructor"> </p>
-              </div>
-              <div class="course">
-                <p><span class="code">PHL232</span> – Epistomology & Metaphysics</p>
-                <p class="instructor">  </p>
-              </div>
-        </div>
-        <div>
-          <h2>Freshman Year</h2>
-          <div class = "course-list">
-              <div class="course">
-                <p><span class="code">MAT157</span> – Analysis I</p>
-                <p class="instructor">Stephen Kudla</p>
-              </div>
-              <div class="course">
-                <p><span class="code">MAT223</span> – Linear Algebra I</p>
-                <p class="instructor"></p>
-              </div>
-              <div class="course">
-                <p><span class="code">PHY151</span> – Foundations of Physics I</p>
-                <p class="instructor">Brian Wilson</p>
-              </div>
-              <div class="course">
-                <p><span class="code">PHY152</span> – Foundations of Physics II</p>
-                <p class="instructor">Paul Kushner</p>
-              </div>
-              <div class="course">
-                <p><span class="code">MAT224</span> – Linear Algebra II</p>
-                <p class="instructor"></p>
-              </div>
-              <div class="course">
-                <p><span class="code">CSC148</span> – Introduction to Computer Science </p>
-                <p class="instructor"></p>
-              </div>
-              <div class="course">
-                <p><span class="code">PHL271</span> – Law & Morality </p>
-                <p class="instructor"></p>
-              </div>
+        <!-- Fourth year -->
+        <section class="year" aria-labelledby="year-4">
+            <div class="year-panel">
+                <div class="year-head">
+                    <h2 class="year-title" id="year-4" data-reveal>Year 4</h2>
+                    <p class="year-meta" data-reveal>Fourth year · 11 courses</p>
+                </div>
+                <figure class="year-figure" data-reveal>
+                    <img src="images/courses/survival-curves.jpg" width="880" height="880" loading="lazy"
+                        alt="A family of survival curves falling from one to zero, one highlighted in amber">
+                    <figcaption>Survival curves under Gompertz–Makeham mortality, from ACT247 and ACT348</figcaption>
+                </figure>
+            </div>
+            <ul class="year-courses">
+                <li data-reveal><a class="course-row" href="https://artsci.calendar.utoronto.ca/course/act240h1"><span class="row-code">ACT240</span><span class="row-name">Mathematics of Investment &amp; Credit</span><span class="row-prof">Christopher Blier-Wong</span></a></li>
+                <li data-reveal><a class="course-row" href="https://artsci.calendar.utoronto.ca/course/act245h1"><span class="row-code">ACT245</span><span class="row-name">Financial Principles for Actuarial Science I</span><span class="row-prof">Xiaodong Lin</span></a></li>
+                <li data-reveal><a class="course-row" href="https://artsci.calendar.utoronto.ca/course/act247h1"><span class="row-code">ACT247</span><span class="row-name">Introductory Life Contingencies</span><span class="row-prof">Basil Singer</span></a></li>
+                <li data-reveal><a class="course-row" href="https://artsci.calendar.utoronto.ca/course/act348h1"><span class="row-code">ACT348</span><span class="row-name">Advanced Life Contingencies</span></a></li>
+                <li data-reveal><a class="course-row" href="https://artsci.calendar.utoronto.ca/course/act370h1"><span class="row-code">ACT370</span><span class="row-name">Financial Principles for Actuarial Science II</span></a></li>
+                <li data-reveal><a class="course-row" href="https://artsci.calendar.utoronto.ca/course/sta257h1"><span class="row-code">STA257</span><span class="row-name">Probability and Statistics I</span><span class="row-prof">Jeffrey Rosenthal</span></a></li>
+                <li data-reveal><a class="course-row" href="https://artsci.calendar.utoronto.ca/course/sta261h1"><span class="row-code">STA261</span><span class="row-name">Probability and Statistics II</span><span class="row-prof">Jesse Gronsbell</span></a></li>
+                <li data-reveal><a class="course-row" href="https://artsci.calendar.utoronto.ca/course/mat357h1"><span class="row-code">MAT357</span><span class="row-name">Foundations of Real Analysis</span><span class="row-prof">Benjamin Christopher Landon</span></a></li>
+                <li data-reveal><a class="course-row" href="https://artsci.calendar.utoronto.ca/course/phy456h1"><span class="row-code">PHY456</span><span class="row-name">Quantum Mechanics II</span><span class="row-prof">Arun Paramekanti</span></a></li>
+                <li data-reveal><a class="course-row" href="https://artsci.calendar.utoronto.ca/course/phy424h1"><span class="row-code">PHY424</span><span class="row-name">Advanced Physics Laboratory</span></a></li>
+                <li data-reveal><a class="course-row" href="https://artsci.calendar.utoronto.ca/course/phl245h1"><span class="row-code">PHL245</span><span class="row-name">Modern Symbolic Logic</span><span class="row-prof">Alex Koo</span></a></li>
+            </ul>
+        </section>
+
+        <!-- Third year -->
+        <section class="year" aria-labelledby="year-3">
+            <div class="year-panel">
+                <div class="year-head">
+                    <h2 class="year-title" id="year-3" data-reveal>Year 3</h2>
+                    <p class="year-meta" data-reveal>Third year · 9 courses</p>
+                </div>
+                <figure class="year-figure" data-reveal>
+                    <img src="images/courses/oscillator-densities.jpg" width="880" height="880" loading="lazy"
+                        alt="Stacked probability densities of the quantum harmonic oscillator inside a parabola">
+                    <figcaption>Probability densities of the quantum harmonic oscillator, from PHY356</figcaption>
+                </figure>
+            </div>
+            <ul class="year-courses">
+                <li data-reveal><a class="course-row" href="https://artsci.calendar.utoronto.ca/course/phy356h1"><span class="row-code">PHY356</span><span class="row-name">Quantum Mechanics I</span><span class="row-prof">John E. Sipe</span></a></li>
+                <li data-reveal><a class="course-row" href="https://artsci.calendar.utoronto.ca/course/phy365h1"><span class="row-code">PHY365</span><span class="row-name">Quantum Information</span><span class="row-prof">Daniel James</span></a></li>
+                <li data-reveal><div class="course-row"><span class="row-code">PHY354</span><span class="row-name">Advanced Classical Mechanics</span><span class="row-prof">Michael Luke</span></div></li>
+                <li data-reveal><a class="course-row" href="https://artsci.calendar.utoronto.ca/course/phy350h1"><span class="row-code">PHY350</span><span class="row-name">Electromagnetic Theory</span><span class="row-prof">Sajeev John</span></a></li>
+                <li data-reveal><a class="course-row" href="https://www.physics.utoronto.ca/~phy224_324/phy324/"><span class="row-code">PHY324</span><span class="row-name">Practical Physics II</span><span class="row-prof">Brian Wilson</span></a></li>
+                <li data-reveal><a class="course-row" href="https://artsci.calendar.utoronto.ca/course/mat367h1"><span class="row-code">MAT367</span><span class="row-name">Differential Geometry</span><span class="row-prof">Wenyu Pan</span></a></li>
+                <li data-reveal><a class="course-row" href="https://artsci.calendar.utoronto.ca/course/mat354h1"><span class="row-code">MAT354</span><span class="row-name">Complex Analysis I</span><span class="row-prof">Wenyu Pan</span></a></li>
+                <li data-reveal><a class="course-row" href="https://artsci.calendar.utoronto.ca/course/mat351y1"><span class="row-code">MAT351</span><span class="row-name">Partial Differential Equations</span><span class="row-prof">Catherine Sulem</span></a></li>
+                <li data-reveal><div class="course-row"><span class="row-code">BIO120</span><span class="row-name">Adaptation &amp; Biodiversity</span></div></li>
+            </ul>
+        </section>
+
+        <!-- Second year -->
+        <section class="year" aria-labelledby="year-2">
+            <div class="year-panel">
+                <div class="year-head">
+                    <h2 class="year-title" id="year-2" data-reveal>Year 2</h2>
+                    <p class="year-meta" data-reveal>Second year · 11 courses</p>
+                </div>
+                <figure class="year-figure" data-reveal>
+                    <img src="images/courses/torus-knot.jpg" width="880" height="880" loading="lazy"
+                        alt="A wireframe torus with a knot winding around it in amber">
+                    <figcaption>A torus knot on a torus, from MAT327</figcaption>
+                </figure>
+            </div>
+            <ul class="year-courses">
+                <li data-reveal><div class="course-row"><span class="row-code">MAT257</span><span class="row-name">Analysis II</span><span class="row-prof">Spyros Alexakis</span></div></li>
+                <li data-reveal><div class="course-row"><span class="row-code">MAT267</span><span class="row-name">Advanced Ordinary Differential Equations</span></div></li>
+                <li data-reveal><div class="course-row"><span class="row-code">MAT327</span><span class="row-name">Topology</span><span class="row-prof">Alexander Nabutovsky</span></div></li>
+                <li data-reveal><div class="course-row"><span class="row-code">MAT295</span><span class="row-name">Independent Reading in Math</span><span class="row-prof">George Elliot</span></div></li>
+                <li data-reveal><div class="course-row"><span class="row-code">PHY250</span><span class="row-name">Electricity &amp; Magnetism</span><span class="row-prof">Nicolas Grisouard</span></div></li>
+                <li data-reveal><div class="course-row"><span class="row-code">PHY252</span><span class="row-name">Thermal Physics</span><span class="row-prof">Stephen Julian</span></div></li>
+                <li data-reveal><div class="course-row"><span class="row-code">PHY254</span><span class="row-name">Classical Mechanics</span><span class="row-prof">Nicolas Grisouard</span></div></li>
+                <li data-reveal><div class="course-row"><span class="row-code">PHY256</span><span class="row-name">Introduction to Quantum Mechanics</span><span class="row-prof">Aephraim M. Steinberg</span></div></li>
+                <li data-reveal><div class="course-row"><span class="row-code">PHY224</span><span class="row-name">Practical Physics I</span><span class="row-prof">Christopher Lee</span></div></li>
+                <li data-reveal><div class="course-row"><span class="row-code">ENG237</span><span class="row-name">Science Fiction</span></div></li>
+                <li data-reveal><div class="course-row"><span class="row-code">PHL232</span><span class="row-name">Epistemology &amp; Metaphysics</span></div></li>
+            </ul>
+        </section>
+
+        <!-- First year -->
+        <section class="year" aria-labelledby="year-1">
+            <div class="year-panel">
+                <div class="year-head">
+                    <h2 class="year-title" id="year-1" data-reveal>Year 1</h2>
+                    <p class="year-meta" data-reveal>First year · 7 courses</p>
+                </div>
+                <figure class="year-figure" data-reveal>
+                    <img src="images/courses/pendulum-phase.jpg" width="880" height="880" loading="lazy"
+                        alt="Phase portrait of a pendulum: closed orbits and the amber separatrix">
+                    <figcaption>Phase portrait of a simple pendulum, from PHY151</figcaption>
+                </figure>
+            </div>
+            <ul class="year-courses">
+                <li data-reveal><div class="course-row"><span class="row-code">MAT157</span><span class="row-name">Analysis I</span><span class="row-prof">Stephen Kudla</span></div></li>
+                <li data-reveal><div class="course-row"><span class="row-code">MAT223</span><span class="row-name">Linear Algebra I</span></div></li>
+                <li data-reveal><div class="course-row"><span class="row-code">MAT224</span><span class="row-name">Linear Algebra II</span></div></li>
+                <li data-reveal><div class="course-row"><span class="row-code">PHY151</span><span class="row-name">Foundations of Physics I</span><span class="row-prof">Brian Wilson</span></div></li>
+                <li data-reveal><div class="course-row"><span class="row-code">PHY152</span><span class="row-name">Foundations of Physics II</span><span class="row-prof">Paul Kushner</span></div></li>
+                <li data-reveal><div class="course-row"><span class="row-code">CSC148</span><span class="row-name">Introduction to Computer Science</span></div></li>
+                <li data-reveal><div class="course-row"><span class="row-code">PHL271</span><span class="row-name">Law &amp; Morality</span></div></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p class="footer-name" aria-hidden="true">Shumail Farooqi</p>
+        <div class="footer-row">
+            <ul class="footer-links">
+                <li><a href="https://www.linkedin.com/in/shumail-farooqi-07a638296">LinkedIn</a></li>
+                <li><a href="https://github.com/sf164">GitHub</a></li>
+                <li><a href="Projects/projects.html">Projects</a></li>
+                <li><a href="./">Home</a></li>
+            </ul>
+            <div class="footer-notes">
+                <p>Figures drawn from the mathematics of each course</p>
+                <p>Header image: NASA, ESA, CSA and STScI</p>
             </div>
         </div>
-    
-    </div>
-    </main>
+    </footer>
 </body>
-
-
 
 </html>
