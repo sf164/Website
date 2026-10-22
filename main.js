@@ -8,15 +8,15 @@
         el.style.setProperty('--delay', 250 + i * 90 + 'ms');
     });
 
+    // No requestAnimationFrame here: it never fires while a tab is hidden,
+    // which would leave the first screen blank.
     function heroIn() {
-        requestAnimationFrame(function () {
-            document.body.classList.add('is-loaded');
-        });
+        document.body.classList.add('is-loaded');
     }
 
     var heroImage = document.querySelector('.hero-image');
     if (!heroImage || heroImage.complete) {
-        heroIn();
+        setTimeout(heroIn, 30);
     } else {
         heroImage.addEventListener('load', heroIn, { once: true });
         heroImage.addEventListener('error', heroIn, { once: true });
