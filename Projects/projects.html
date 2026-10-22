@@ -1,131 +1,185 @@
 <!DOCTYPE html>
+<html lang="en">
 
-<html>
 <head>
-    <title>Projects</title>
-    <link rel="stylesheet" href="projects.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Projects · Shumail Farooqi</title>
+    <meta name="description" content="Projects by Shumail Farooqi: a homeowners insurance pricing case, a particle detector calibration, and physics lab work.">
+    <link rel="preload" href="../fonts/big-shoulders.woff" as="font" type="font/woff" crossorigin>
+    <link rel="preload" href="../fonts/public-sans.woff" as="font" type="font/woff" crossorigin>
+    <link rel="stylesheet" href="../main.css?v=7">
+    <script>document.documentElement.classList.add('js');</script>
+    <script src="../main.js?v=7" defer></script>
+    <script src="projects.js?v=7" defer></script>
 </head>
 
 <body>
-    <header>
-        <a href="../index.html">Home</a>
-        <a href="#" id ="projects">Projects</a>
-        <a  href="../courses.html">Courses</a>
+    <header class="site-header is-static">
+        <a class="wordmark" href="../index.html">Shumail Farooqi</a>
+        <nav class="site-nav" aria-label="Main">
+            <a href="projects.html" aria-current="page">Projects</a>
+            <a href="../courses.html">Courses</a>
+            <a href="https://www.linkedin.com/in/shumail-farooqi-07a638296">LinkedIn</a>
+        </nav>
     </header>
 
-    <main>
-        <hr>
-        <h2 class="projects-heading">Featured Projects</h2>
-        <h4 class="projects-subheading">Some of my recent work as a physics student</h4>
-        <div class="grid">
-            <div class="grid-item" id = "data-analysis">
-                <div class = "card">
-                    <a href="https://github.com/sf164/Website/tree/main/Projects/Data%20Analysis">
-                        <div class ="image-container"><img src="accelerator.gif"></div>
-                    </a>
-                    <div class ="card-content">
-                        <a href="#">
-                            <h4 class="card-title">Energy Calibrator for Particle Detectors</h4>
-                        </a>
-                        <div class = "card-text">Analyzed particle detector data, built algorithms for energy estimations by calibrating the data of a known particle. </div>
-                        <div class = "card-skills">
-                            <div class = "skill">Python</div>
-                            <div class ="skill">Matlab</div>
-                            <div class = "skill">Error Analysis</div>
-                            <div class = "skill">Data Manipulation</div>
-                        </div>
+    <main class="work-browser">
+        <div class="work-list">
+            <div class="work-intro">
+                <h1 class="page-title" data-hero>Projects</h1>
+                <p class="hero-lead" data-hero>Insurance pricing, detector calibration and lab physics. Pick a project to see the work behind it.</p>
+                <div class="work-filters" role="group" aria-label="Filter by subject" data-hero hidden>
+                    <button type="button" class="filter" data-filter="all" aria-pressed="true">All</button>
+                    <button type="button" class="filter" data-filter="actuarial" aria-pressed="false">Actuarial</button>
+                    <button type="button" class="filter" data-filter="physics" aria-pressed="false">Physics</button>
+                    <button type="button" class="filter" data-filter="math" aria-pressed="false">Mathematics</button>
+                    <button type="button" class="filter" data-filter="web" aria-pressed="false">Web</button>
+                </div>
+            </div>
+
+            <div class="work-item" data-category="actuarial" data-reveal>
+                <h2 class="work-heading">
+                    <button type="button" class="work-toggle" aria-controls="detail-cas" aria-expanded="false">
+                        <span class="work-title">Homeowners pricing case</span>
+                        <span class="work-meta">Casualty Actuarial Society case competition · 2026</span>
+                    </button>
+                </h2>
+                <div class="work-detail" id="detail-cas">
+                    <div class="work-media">
+                        <img src="../images/projects/cas-loss-ratios-4x3.jpg" width="1600" height="1200" loading="lazy"
+                            alt="Bar charts of loss and LAE ratios from the case data: 66% without a water sensor against 39% with one, 67% with no alarm down to 40% with a monitored alarm, and 67% for shingle roofs against 54% for hail-resistant and solar roofs">
+                    </div>
+                    <p class="work-key"><strong>~200,000</strong><span>policies in the homeowners book, rated by peril</span></p>
+                    <p class="work-desc">The brief: build rating factors for wind and hail, water, fire, theft, other damage and liability, and propose a new discount structure for water sensors, alarms and roofing, then present it to a panel of executives.</p>
+                    <p class="work-tags">Ratemaking · Credibility · Discount structure · Presentation</p>
+                </div>
+            </div>
+
+            <div class="work-item" data-category="physics" data-reveal>
+                <h2 class="work-heading">
+                    <button type="button" class="work-toggle" aria-controls="detail-detector" aria-expanded="false">
+                        <span class="work-title">Energy calibration for a particle detector</span>
+                        <span class="work-meta">PHY324 data analysis · February 2025</span>
+                    </button>
+                </h2>
+                <div class="work-detail" id="detail-detector">
+                    <div class="work-media">
+                        <img src="../images/projects/detector-energy-spectra.jpg" width="1600" height="1200" loading="lazy"
+                            alt="Two histograms: calibration events peaking at 10 keV with a Gaussian fit, and the unknown particle's energy spectrum with a skewed plus normal Gaussian fit">
+                    </div>
+                    <p class="work-key"><strong>41.6 keV/mV</strong><span>calibration factor, found from a known 10 keV source</span></p>
+                    <p class="work-desc">Built estimators for pulse amplitude from detector traces, calibrated them on a particle of known energy, then used the calibration to measure the energy spectrum of an unknown particle.</p>
+                    <p class="work-tags">Python · Curve fitting · χ² goodness of fit · Uncertainty analysis</p>
+                    <div class="work-links">
+                        <a class="text-link" href="Data%20Analysis/Data%20Analysis%20-%20Final%20Report.pdf">Read the report</a>
+                        <a class="text-link" href="https://github.com/sf164/Website/tree/main/Projects/Data%20Analysis">See the code</a>
                     </div>
                 </div>
             </div>
 
-            <div class="grid-item" id = "website">
-                <div class = "card">
-                    <a href="../index.html">
-                        <div class ="image-container"><img src="potential usage.png"></div>
-                    </a>
-                    <div class ="card-content">
-                        <a href="../index.html">
-                            <h4 class="card-title">Personal Website</h4>
-                        </a>
-                        <div class = "card-text">Personal Website built from ground up using HTML and CSS</div>
-                        <div class = "card-skills">
-                            <div class = "skill">HTML</div>
-                            <div class ="skill">CSS</div>
-                            <div class = "skill">Bootstrap</div>
-                        </div>
+            <div class="work-item" data-category="physics" data-reveal>
+                <h2 class="work-heading">
+                    <button type="button" class="work-toggle" aria-controls="detail-pendulum" aria-expanded="false">
+                        <span class="work-title">Pendulum project</span>
+                        <span class="work-meta">PHY324 · April 2025</span>
+                    </button>
+                </h2>
+                <div class="work-detail" id="detail-pendulum">
+                    <div class="work-media">
+                        <img src="../images/projects/pendulum-period-length.jpg" width="1600" height="1200" loading="lazy"
+                            alt="Measured period against string length with the square-root fit and the theoretical curve, and the residuals of the fit below">
+                    </div>
+                    <p class="work-key"><strong>1.89</strong><span>reduced χ² of the fit of period against string length</span></p>
+                    <p class="work-desc">Built a physical pendulum and tested damped harmonic motion. The period followed the predicted dependence on length; the decay constant’s dependence on mass fit a logarithm better than the predicted line.</p>
+                    <p class="work-tags">Data collection · Uncertainty analysis · Python · Video processing</p>
+                    <div class="work-links">
+                        <a class="text-link" href="Pendulum_Project.pdf">Read the report</a>
                     </div>
                 </div>
             </div>
 
-            <div class="grid-item" id = "presentation">
-                <div class = "card">
-                    <a href="Pres.pdf">
-                        <div class ="image-container"><img src="Presentation.png"></div>
-                    </a>
-                    <div class ="card-content">
-                        <a href="#">
-                            <h4 class="card-title">Presentation at Field's Institute</h4>
-                        </a>
-                        <div class = "card-text">Notes and Outline of the final presentation
-                                for research reading course MAT295
-                        </div>
-                        <div class = "card-skills">
-                            <div class = "skill">Operator Algebra</div>
-                            <div class ="skill">K-theory</div>
-                            <div class = "skill">Public Speaking</div>
-                        </div>
+            <div class="work-item" data-category="physics" data-reveal>
+                <h2 class="work-heading">
+                    <button type="button" class="work-toggle" aria-controls="detail-spectrometry" aria-expanded="false">
+                        <span class="work-title">Spectrometry project</span>
+                        <span class="work-meta">PHY324 · with Daniel Lu · February 2025</span>
+                    </button>
+                </h2>
+                <div class="work-detail" id="detail-spectrometry">
+                    <div class="work-media">
+                        <img src="../images/projects/emission-spectra.jpg" width="1600" height="1200" loading="lazy"
+                            alt="Emission spectra of mercury, hydrogen, helium and the unknown gas, with the main peaks labelled by wavelength">
+                    </div>
+                    <p class="work-key"><strong>1.87 ± 0.05 eV</strong><span>hydrogen’s Balmer line as measured; theory says 1.89 eV</span></p>
+                    <p class="work-desc">Calibrated a spectrometer with mercury, matched hydrogen’s Balmer lines and helium’s spectrum within uncertainty, and identified an unknown gas as krypton from its three peaks.</p>
+                    <p class="work-tags">Python · Spectrometer · Calibration · Academic report</p>
+                    <div class="work-links">
+                        <a class="text-link" href="PHY324___Spectrometry_Report.pdf">Read the report</a>
                     </div>
                 </div>
             </div>
 
-            <div class="grid-item" id = "Spectrometry">
-                <div class = "card">
-                    <a href="PHY324___Spectrometry_Report.pdf">
-                        <div class ="image-container"><img src="Spec.png"></div>
-                    </a>
-                    <div class ="card-content">
-                        <a href="#">
-                            <h4 class="card-title">Spectrometry Project</h4>
-                        </a>
-                        <div class = "card-text"> Investigated the emission spectra of some noble gases using spectrometer, analyzed dyed water solution,
-                             and assessed how the results aligned with the theoretical model
-                        </div>
-                        <div class = "card-skills">
-                            <div class = "skill">Python</div>
-                            <div class ="skill">Spectrometer</div>
-                            <div class = "skill">Academic Report</div>
-                        </div>
+            <div class="work-item" data-category="math" data-reveal>
+                <h2 class="work-heading">
+                    <button type="button" class="work-toggle" aria-controls="detail-ktheory" aria-expanded="false">
+                        <span class="work-title">K-theory for C*-algebras</span>
+                        <span class="work-meta">MAT295 reading course · Fields Institute · Summer 2024</span>
+                    </button>
+                </h2>
+                <div class="work-detail" id="detail-ktheory">
+                    <div class="work-media is-paper">
+                        <img src="../images/k-theory-diagram.png" width="1056" height="534" loading="lazy"
+                            alt="A commutative diagram of K-zero groups">
+                    </div>
+                    <p class="work-key"><strong>K₀(A)</strong><span>the group the talk builds, via the Grothendieck construction</span></p>
+                    <p class="work-desc">An oral and a written report introducing the K₀ group of a unital C*-algebra, for a research reading course in operator algebras.</p>
+                    <p class="work-tags">Operator algebras · K-theory · Public speaking</p>
+                    <div class="work-links">
+                        <a class="text-link" href="Pres.pdf">Read the notes</a>
                     </div>
                 </div>
             </div>
 
-            <div class="grid-item">
-                <div class = "card">
-                    <a href="Pendulum_Project.pdf">
-                        <div class ="image-container"><img src="pendulum-image2.png"></div>
-                    </a>
-                    <div class ="card-content">
-                        <a href="Pendulum_Project.pdf">
-                            <h4 class="card-title">Pendulum Project</h4>
-                        </a>
-                        <div class = "card-text"> Built a physical pendulum to investigate the motion of the pendulum and compared the results to the theoretical model of damped harmonic motion.</div>
-                        <div class = "card-skills"> 
-                            <div class = "skill">Data Collection</div>
-                            <div class = "skill">Uncertainty Analysis</div>
-                            <div class = "skill">Python</div>
-                            <div class = "skill">Video Processing</div>
-                        </div>
+            <div class="work-item" data-category="web" data-reveal>
+                <h2 class="work-heading">
+                    <button type="button" class="work-toggle" aria-controls="detail-website" aria-expanded="false">
+                        <span class="work-title">This website</span>
+                        <span class="work-meta">Personal project · redesigned 2026</span>
+                    </button>
+                </h2>
+                <div class="work-detail" id="detail-website">
+                    <div class="work-media">
+                        <img src="../images/projects/website-home.jpg" width="1200" height="750" loading="lazy"
+                            alt="The homepage of this website">
+                    </div>
+                    <p class="work-key"><strong>HTML · CSS · JS</strong><span>no framework, hosted on GitHub Pages</span></p>
+                    <p class="work-desc">Designed and built from scratch, with one shared stylesheet, self-hosted fonts and a layout that works from a phone to a wide screen.</p>
+                    <p class="work-tags">HTML · CSS · JavaScript · GitHub Pages</p>
+                    <div class="work-links">
+                        <a class="text-link" href="https://github.com/sf164/Website">See the code</a>
                     </div>
                 </div>
             </div>
         </div>
+
+        <aside class="work-panel" aria-label="Selected project" aria-live="polite"></aside>
     </main>
 
-
-
+    <footer class="site-footer">
+        <p class="footer-name" aria-hidden="true">Shumail Farooqi</p>
+        <div class="footer-row">
+            <ul class="footer-links">
+                <li><a href="https://www.linkedin.com/in/shumail-farooqi-07a638296">LinkedIn</a></li>
+                <li><a href="https://github.com/sf164">GitHub</a></li>
+                <li><a href="../courses.html">Courses</a></li>
+                <li><a href="../index.html">Home</a></li>
+            </ul>
+            <div class="footer-notes">
+                <p>Last updated October 2026</p>
+            </div>
+        </div>
+    </footer>
 </body>
-
-
-
 
 </html>
