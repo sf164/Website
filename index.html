@@ -1,85 +1,162 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 
 <head>
-    <title>Shumail Farooqi - Undergraduate Student </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shumail Farooqi · Mathematical Physics &amp; Actuarial Science, University of Toronto</title>
+    <meta name="description" content="Shumail Farooqi studies Mathematical Physics &amp; Actuarial Science at the University of Toronto and is looking for an actuarial internship.">
+    <link rel="preload" href="fonts/big-shoulders.woff" as="font" type="font/woff" crossorigin>
+    <link rel="preload" href="fonts/public-sans.woff" as="font" type="font/woff" crossorigin>
     <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>document.documentElement.classList.add('js');</script>
+    <script src="main.js" defer></script>
 </head>
 
-
 <body>
-    <header>
-        <a href="#" id="home">Home</a>
-        <a href="Projects/projects.html"> Projects</a>
-        <a href="courses.html"> Courses</a>
+    <header class="site-header">
+        <a class="wordmark" href="./">Shumail Farooqi</a>
+        <nav class="site-nav" aria-label="Main">
+            <a href="Projects/projects.html">Projects</a>
+            <a href="courses.html">Courses</a>
+            <a href="https://www.linkedin.com/in/shumail-farooqi-07a638296">LinkedIn</a>
+        </nav>
     </header>
-    <hr>
+
     <main>
-        <div class="front">
-            <h1> Hi, I'm Shumail Farooqi </h1>
-            <div class="description">
-                Undergraduate Student at University of Toronto
+        <!-- First screen: who and what -->
+        <section class="hero">
+            <img class="hero-image"
+                src="images/nebula-2000.jpg"
+                srcset="images/nebula-1200.jpg 1200w, images/nebula-2000.jpg 2000w"
+                sizes="100vw"
+                width="2000" height="1158"
+                alt="The Cosmic Cliffs of the Carina Nebula, photographed by the James Webb Space Telescope"
+                fetchpriority="high">
+            <div class="hero-copy">
+                <h1 class="hero-title" data-hero>Shumail<br> Farooqi</h1>
+                <p class="hero-lead" data-hero>Mathematical Physics &amp; Actuarial Science at the University of Toronto, looking for an actuarial internship.</p>
+                <div class="hero-actions" data-hero>
+                    <a class="button" href="#projects">See my projects</a>
+                    <a class="text-link" href="https://www.linkedin.com/in/shumail-farooqi-07a638296">Connect on LinkedIn</a>
+                </div>
             </div>
-            <div id="front-buttons">
-            <a href="https://www.linkedin.com/in/shumail-farooqi-07a638296" class="b2">
-                <span class="label">Get in Touch</span>
-                <i class="fa-solid fa-envelope icon"></i>
-            </a>
-                <a href="Projects\projects.html" class="b2">
-                    <span class="label">
-                        View Projects
-                    </span>
-                    <i class="fa-solid fa-layer-group icon"></i>
+        </section>
+
+        <!-- About -->
+        <section class="about" id="about" aria-labelledby="about-title">
+            <h2 class="section-title" id="about-title" data-reveal>About</h2>
+            <p class="statement" data-reveal>I'm drawn to the place where rigorous theory meets real data.</p>
+            <dl class="facts">
+                <div class="fact" data-reveal>
+                    <dt>Studying</dt>
+                    <dd>Mathematical Physics &amp; Actuarial Science, University of Toronto</dd>
+                </div>
+                <div class="fact" data-reveal>
+                    <dt>Experience with</dt>
+                    <dd>Data analysis, uncertainty quantification and data visualization</dd>
+                </div>
+                <div class="fact" data-reveal>
+                    <dt>Programming</dt>
+                    <dd>Python, C++, SQL, LaTeX, HTML and CSS</dd>
+                </div>
+                <div class="fact" data-reveal>
+                    <dt>Interested in</dt>
+                    <dd>Financial mathematics, topology, differential geometry and general relativity</dd>
+                </div>
+                <div class="fact" data-reveal>
+                    <dt>Outside class</dt>
+                    <dd>Rock climbing, running and video games</dd>
+                </div>
+            </dl>
+        </section>
+
+        <!-- Coursework recruiters look for -->
+        <section class="coursework" id="coursework" aria-labelledby="coursework-title">
+            <div class="coursework-intro">
+                <h2 class="section-title" id="coursework-title" data-reveal>Actuarial coursework</h2>
+                <p data-reveal>
+                    Alongside a full sequence in analysis, linear algebra and physics, these are the courses
+                    closest to actuarial work.
+                </p>
+                <a class="text-link" href="courses.html" data-reveal>See every course</a>
+            </div>
+            <ol class="course-list">
+                <li data-reveal><span class="course-code">ACT240</span><span class="course-name">Mathematics of Investment &amp; Credit</span></li>
+                <li data-reveal><span class="course-code">ACT245</span><span class="course-name">Financial Principles for Actuarial Science I</span></li>
+                <li data-reveal><span class="course-code">ACT247</span><span class="course-name">Introductory Life Contingencies</span></li>
+                <li data-reveal><span class="course-code">ACT348</span><span class="course-name">Advanced Life Contingencies</span></li>
+                <li data-reveal><span class="course-code">ACT370</span><span class="course-name">Financial Principles for Actuarial Science II</span></li>
+                <li data-reveal><span class="course-code">STA257</span><span class="course-name">Probability and Statistics I</span></li>
+                <li data-reveal><span class="course-code">STA261</span><span class="course-name">Probability and Statistics II</span></li>
+            </ol>
+        </section>
+
+        <!-- Projects -->
+        <section class="projects" id="projects" aria-labelledby="projects-title">
+            <h2 class="section-title" id="projects-title" data-reveal>Selected projects</h2>
+
+            <article class="project">
+                <a class="project-figure" href="Projects/Pendulum_Project.pdf" data-reveal tabindex="-1" aria-hidden="true">
+                    <img src="images/pendulum.jpg" width="503" height="657" loading="lazy"
+                        alt="A physical pendulum: a dark weight hanging on strings from a wooden A-frame">
                 </a>
+                <div class="project-text">
+                    <h3 data-reveal>Pendulum project</h3>
+                    <p data-reveal>Built a physical pendulum and compared its measured motion against the theoretical model of damped harmonic motion.</p>
+                    <p class="project-skills" data-reveal>Uncertainty analysis · Data collection · Python · Video processing</p>
+                    <a class="text-link" href="Projects/Pendulum_Project.pdf" data-reveal>Read the report</a>
+                </div>
+            </article>
+
+            <article class="project project-flip">
+                <a class="project-figure" href="Projects/PHY324___Spectrometry_Report.pdf" data-reveal tabindex="-1" aria-hidden="true">
+                    <img src="images/spectrometry.jpg" width="806" height="502" loading="lazy"
+                        alt="Glowing discharge tubes of helium, neon, argon, krypton and xenon">
+                </a>
+                <div class="project-text">
+                    <h3 data-reveal>Spectrometry project</h3>
+                    <p data-reveal>Measured the emission spectra of noble gases with a spectrometer, analyzed a dyed water solution, and tested how well the results matched the theoretical model.</p>
+                    <p class="project-skills" data-reveal>Python · Spectrometer · Academic report</p>
+                    <a class="text-link" href="Projects/PHY324___Spectrometry_Report.pdf" data-reveal>Read the report</a>
+                </div>
+            </article>
+
+            <article class="project">
+                <a class="project-figure" href="Projects/Pres.pdf" data-reveal tabindex="-1" aria-hidden="true" style="--frame: #f7f7f7">
+                    <img src="images/k-theory-diagram.png" width="1056" height="534" loading="lazy"
+                        alt="A commutative diagram of K-zero groups from operator K-theory">
+                </a>
+                <div class="project-text">
+                    <h3 data-reveal>Presentation at the Fields Institute</h3>
+                    <p data-reveal>Notes and outline of my final presentation for MAT295, a research reading course in operator algebras and K-theory.</p>
+                    <p class="project-skills" data-reveal>Operator algebras · K-theory · Public speaking</p>
+                    <a class="text-link" href="Projects/Pres.pdf" data-reveal>Read the notes</a>
+                </div>
+            </article>
+
+            <div class="projects-more" data-reveal>
+                <p>Also: an energy calibrator for particle detectors, built from calibration data in Python.</p>
+                <a class="text-link" href="Projects/projects.html">See all projects</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p class="footer-name" aria-hidden="true">Shumail Farooqi</p>
+        <div class="footer-row">
+            <ul class="footer-links">
+                <li><a href="https://www.linkedin.com/in/shumail-farooqi-07a638296">LinkedIn</a></li>
+                <li><a href="https://github.com/sf164">GitHub</a></li>
+                <li><a href="Projects/projects.html">Projects</a></li>
+                <li><a href="courses.html">Courses</a></li>
+            </ul>
+            <div class="footer-notes">
+                <p>Last updated October 2026</p>
+                <p>Header image: NASA, ESA, CSA and STScI</p>
             </div>
         </div>
-    </main>
-    <div class="container">
-    <div class="card full">
-      <h2><i class="fas fa-graduation-cap"></i> Background</h2>
-      <p>
-        I'm a Mathematics and Physics Specialist student at the University of Toronto with a strong interest in the intersection of theoretical concepts and practical data-driven applications. My experience includes data analysis, uncertainty quantification, and data visualization. Academically, I’m passionate about topology, 
-        differential geometry, general relativity, and financial mathematics.
-      </p>
-    </div>
-
-
-
-    <div class="card">
-      <h2><i class="fas fa-code"></i> Programming</h2>
-      <div class="tags">
-        <span>Python</span>
-        <span>C++</span>
-        <span>HTML</span>
-        <span>CSS</span>
-        <span>SQL</span>
-        <span>LaTex</span>
-      </div>
-    </div>
-        <div class="card">
-      <h2><i class="fa-solid fa-heart"></i> Hobbies and Interests</h2>
-      <div class="tags">
-        <span> Rock Climbing </span>
-        <span> Running </span>
-        <span>Video Games</span>
-
-      </div>
-    </div>
-  </div>
-
-    <br>
-    <footer>
-        <h3> <strong>Last Updated:</strong> May 8th 2025 </h3>
     </footer>
 </body>
-
-
-
-
-
-
-
 
 </html>
