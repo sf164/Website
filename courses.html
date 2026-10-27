@@ -8,9 +8,10 @@
     <meta name="description" content="Five years of mathematics, physics and actuarial science courses taken by Shumail Farooqi at the University of Toronto.">
     <link rel="preload" href="fonts/big-shoulders.woff" as="font" type="font/woff" crossorigin>
     <link rel="preload" href="fonts/public-sans.woff" as="font" type="font/woff" crossorigin>
-    <link rel="stylesheet" href="main.css?v=8">
+    <link rel="stylesheet" href="main.css?v=10">
     <script>document.documentElement.classList.add('js');</script>
     <script src="main.js?v=8" defer></script>
+    <script src="donut.js?v=2" defer></script>
 </head>
 
 <body>
@@ -133,8 +134,20 @@
                     <p class="year-meta" data-reveal>Second year · 11 courses</p>
                 </div>
                 <figure class="year-figure" data-reveal>
-                    <img src="images/courses/torus-knot.jpg" width="880" height="880" loading="lazy"
-                        alt="A wireframe torus with a knot winding around it in amber">
+                    <div class="donut-frame">
+                        <div class="donut" data-donut data-label="A dark torus with the (2,5) torus knot wound around it as an amber cord">
+                            <img src="images/courses/torus-knot.jpg" width="880" height="880" loading="lazy"
+                                alt="A wireframe torus with a knot winding around it in amber">
+                        </div>
+                        <div class="donut-eq">
+                            <p class="donut-eq-name">(2,5) torus knot</p>
+                            <p class="donut-eq-lines">
+                                <span><var>x</var>(<var>t</var>)</span><span>=</span><span>(<var>R</var> + <var>r</var> cos 5<var>t</var>) cos 2<var>t</var></span>
+                                <span><var>y</var>(<var>t</var>)</span><span>=</span><span>(<var>R</var> + <var>r</var> cos 5<var>t</var>) sin 2<var>t</var></span>
+                                <span><var>z</var>(<var>t</var>)</span><span>=</span><span><var>r</var> sin 5<var>t</var></span>
+                            </p>
+                        </div>
+                    </div>
                     <figcaption>A torus knot on a torus, from MAT327</figcaption>
                 </figure>
             </div>
