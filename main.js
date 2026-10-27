@@ -51,3 +51,57 @@
         if (el) el.classList.add('is-visible');
     });
 })();
+
+// Copy-email button and the footer's "Last updated" date.
+(function () {
+    // Copy email: puts the address on the clipboard; if that isn't allowed, selects it instead.
+    document.querySelectorAll('[data-copy]').forEach(function (button) {
+        var label = button.textContent;
+        var status = button.parentElement.querySelector('[data-copy-status]');
+        var timer;
+
+        function done(text) {
+            button.textContent = text;
+            button.classList.add('is-copied');
+            if (status) status.textContent = text;
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+                button.textContent = label;
+                button.classList.remove('is-copied');
+            }, 2000);
+        }
+
+        function selectInstead() {
+            var link = button.parentElement.querySelector('.contact-email');
+            if (!link) return;
+            var range = document.createRange();
+            range.selectNodeContents(link);
+            var sel = window.getSelection();
+            sel.removeAllRanges();
+            sel.addRange(range);
+            done('Press Ctrl+C to copy');
+        }
+
+        button.addEventListener('click', function () {
+            var text = button.getAttribute('data-copy');
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(function () { done('Copied'); }, selectInstead);
+            } else {
+                selectInstead();
+            }
+        });
+    });
+
+    // Last updated: GitHub Pages sends the time of the latest publish with every page.
+    // If the browser didn't get that time, it reports "now", so the date typed in the page stays.
+    var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
+        'August', 'September', 'October', 'November', 'December'];
+    var stamp = new Date(document.lastModified);
+    if (!isNaN(stamp) && Date.now() - stamp.getTime() > 60000) {
+        document.querySelectorAll('[data-last-updated]').forEach(function (el) {
+            el.textContent = stamp.getDate() + ' ' + MONTHS[stamp.getMonth()] + ' ' + stamp.getFullYear();
+            el.setAttribute('datetime', stamp.getFullYear() + '-' +
+                String(stamp.getMonth() + 1).padStart(2, '0') + '-' + String(stamp.getDate()).padStart(2, '0'));
+        });
+    }
+})();

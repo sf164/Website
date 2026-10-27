@@ -1543,6 +1543,148 @@ html.cv-lock {
     white-space: nowrap;
 }
 
+/* ---------- Exam badges (front page, under the intro line) ---------- */
+.cred-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 24px;
+}
+
+.cred-chips li {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 36px;
+    padding: 0 14px 0 10px;
+    background: rgba(11, 14, 19, 0.62);
+    border: 1px solid rgba(236, 235, 231, 0.16);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    font-size: var(--step-small);
+    font-weight: 600;
+    color: var(--ink);
+}
+
+.cred-chips .chip-when {
+    font-weight: 400;
+    color: var(--muted);
+}
+
+.chip-mark {
+    flex: none;
+    width: 14px;
+    height: 14px;
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+}
+
+.chip-mark.is-done {
+    background: var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M3.5 7.2l2.2 2.2 4.8-4.8' fill='none' stroke='%231d1206' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 12px no-repeat;
+}
+
+.cred-chips + .hero-actions {
+    margin-top: 28px;
+}
+
+/* ---------- Contact (front page, before the footer) ---------- */
+.contact {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--gutter);
+    padding: var(--section-gap) var(--margin) 0;
+}
+
+.contact .section-title {
+    grid-column: 1 / span 4;
+}
+
+.contact-body {
+    grid-column: 5 / span 8;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    min-width: 0;
+}
+
+.contact-lead {
+    max-width: 26ch;
+    font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.25rem);
+    line-height: 1.22;
+    font-weight: 500;
+    text-wrap: balance;
+}
+
+.contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px 20px;
+}
+
+.contact-email {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: clamp(2rem, 1.2rem + 2.6vw, 3.5rem);
+    line-height: 1;
+    letter-spacing: 0.005em;
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 200ms ease;
+}
+
+.contact-copy {
+    min-height: 44px;
+    padding: 0 18px;
+    border: 1px solid rgba(236, 235, 231, 0.22);
+    background: transparent;
+    color: var(--ink);
+    font: inherit;
+    font-size: var(--step-small);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 160ms ease, border-color 160ms ease, transform 160ms var(--ease-out);
+}
+
+.contact-copy:active {
+    transform: scale(0.97);
+}
+
+.contact-copy.is-copied {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 32px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .contact-email:hover {
+        color: var(--accent-hover);
+    }
+
+    .contact-copy:hover {
+        background: rgba(236, 235, 231, 0.06);
+        border-color: rgba(236, 235, 231, 0.36);
+    }
+}
+
+@media (max-width: 900px) {
+    .contact .section-title,
+    .contact-body {
+        grid-column: 1 / -1;
+    }
+
+    .contact-body {
+        margin-top: 28px;
+    }
+}
+
 /* ---------- Projects page ---------- */
 .site-header.is-static {
     position: relative;
