@@ -25,10 +25,11 @@
     <meta name="twitter:image" content="https://sf164.github.io/Website/images/share-card.jpg">
     <link rel="preload" href="fonts/big-shoulders.woff" as="font" type="font/woff" crossorigin>
     <link rel="preload" href="fonts/public-sans.woff" as="font" type="font/woff" crossorigin>
-    <link rel="stylesheet" href="main.css?v=12">
+    <link rel="stylesheet" href="main.css?v=15">
     <script>document.documentElement.classList.add('js');</script>
     <script src="main.js?v=9" defer></script>
-    <script src="donut.js?v=2" defer></script>
+    <script src="donut.js?v=4" defer></script>
+    <script src="bowl.js?v=4" defer></script>
 </head>
 
 <body>
@@ -72,9 +73,23 @@
                     <p class="year-meta" data-reveal>Fifth year · 7 courses</p>
                 </div>
                 <figure class="year-figure" data-reveal>
-                    <img src="images/courses/brownian-paths.jpg" width="880" height="880" loading="lazy"
-                        alt="Many random sample paths of geometric Brownian motion, one highlighted in amber">
-                    <figcaption>Sample paths of geometric Brownian motion, from ACT460</figcaption>
+                    <div class="donut-frame bowl-frame">
+                        <div class="donut" data-bowl="bowl-lab">
+                            <img src="images/courses/steepest-descent-bowl.jpg?v=2" width="880" height="880" loading="lazy"
+                                alt="A dark bowl, the graph of a quadratic function, with an amber steepest descent path running down to the bottom">
+                        </div>
+                        <div class="donut-eq">
+                            <p class="donut-eq-name">Steepest descent</p>
+                            <p class="donut-eq-lines">
+                                <span><var>x</var><sub><var>k</var>+1</sub></span><span>=</span><span><var>x</var><sub><var>k</var></sub> − <var>α</var><sub><var>k</var></sub>∇<var>f</var>(<var>x</var><sub><var>k</var></sub>)</span>
+                                <span><var>f</var>(<var>x</var>)</span><span>=</span><span>½ <var>x</var> · <var>Qx</var></span>
+                            </p>
+                        </div>
+                        <button type="button" class="bowl-open" data-bowl-open aria-haspopup="dialog" aria-controls="bowl-lab" hidden>
+                            <span class="visually-hidden">Open the steepest descent figure to turn the bowl, change the step size and edit Q</span>
+                        </button>
+                    </div>
+                    <figcaption>Steepest descent finding the bottom of a quadratic bowl, from APM462</figcaption>
                 </figure>
             </div>
             <ul class="year-courses">
@@ -223,6 +238,67 @@
             </div>
         </div>
     </footer>
+
+    <!-- The larger, interactive view of the Year 5 figure -->
+    <dialog class="bowlr" id="bowl-lab" aria-labelledby="bowl-lab-title">
+        <div class="bowlr-scrim"></div>
+        <div class="bowlr-scroll">
+            <div class="bowlr-panel">
+                <button type="button" class="cvr-close bowlr-close" data-bowl-close aria-label="Close"></button>
+                <div class="bowlr-stage">
+                    <div class="donut" data-bowl-big data-label="The bowl f(x) = ½ x·Qx, with the steepest descent path running down it in amber">
+                        <img src="images/courses/steepest-descent-bowl.jpg?v=2" width="880" height="880" alt="">
+                    </div>
+                </div>
+                <div class="bowlr-side">
+                    <div class="bowlr-head">
+                        <p class="bowlr-eyebrow">APM462 · Nonlinear Optimization</p>
+                        <h2 class="bowlr-title" id="bowl-lab-title">Steepest descent</h2>
+                        <p class="bowlr-lead">Each step heads straight downhill, along −∇<var>f</var>, and stops after a step of size <var>α</var><sub><var>k</var></sub>. Drag the bowl to turn it.</p>
+                    </div>
+
+                    <div class="bowlr-eqs">
+                        <span><var>x</var><sub><var>k</var>+1</sub></span><span>=</span><span><var>x</var><sub><var>k</var></sub> − <var>α</var><sub><var>k</var></sub> ∇<var>f</var>(<var>x</var><sub><var>k</var></sub>)</span>
+                        <span><var>f</var>(<var>x</var>)</span><span>=</span><span>½ <var>x</var> · <var>Qx</var>, &nbsp;so &nbsp;∇<var>f</var>(<var>x</var>) = <var>Qx</var></span>
+                        <span><var>α</var><sub><var>k</var></sub></span><span>=</span><span>|<var>g</var><sub><var>k</var></sub>|² / (<var>g</var><sub><var>k</var></sub> · <var>Qg</var><sub><var>k</var></sub>) &nbsp;for the exact step, with <var>g</var><sub><var>k</var></sub> = ∇<var>f</var>(<var>x</var><sub><var>k</var></sub>)</span>
+                    </div>
+
+                    <div class="bowlr-group" role="group" aria-labelledby="bowl-q-label">
+                        <p class="bowlr-label" id="bowl-q-label">The matrix Q</p>
+                        <div class="q-row">
+                            <span class="q-name"><var>Q</var> =</span>
+                            <div class="q-matrix">
+                                <input data-q="11" id="bowl-q11" type="number" inputmode="decimal" step="0.5" value="3" aria-label="Q, row 1, column 1">
+                                <input data-q="12" id="bowl-q12" class="q-off" type="number" inputmode="decimal" step="0.5" value="0" aria-label="Q, row 1, column 2 (kept equal to row 2, column 1)">
+                                <input data-q="21" id="bowl-q21" class="q-off" type="number" inputmode="decimal" step="0.5" value="0" aria-label="Q, row 2, column 1 (kept equal to row 1, column 2)">
+                                <input data-q="22" id="bowl-q22" type="number" inputmode="decimal" step="0.5" value="3" aria-label="Q, row 2, column 2">
+                            </div>
+                            <div class="q-presets" role="group" aria-label="Example matrices">
+                                <button type="button" data-q-preset="round" aria-pressed="true">Round</button>
+                                <button type="button" data-q-preset="valley" aria-pressed="false">Long valley</button>
+                            </div>
+                        </div>
+                        <p class="q-facts" data-q-facts></p>
+                        <p class="q-error" data-q-error role="alert" hidden></p>
+                        <p class="q-note">Q is restricted to be symmetric: change either off-diagonal entry and the other follows.</p>
+                    </div>
+
+                    <div class="bowlr-group" role="group" aria-labelledby="bowl-step-label">
+                        <p class="bowlr-label" id="bowl-step-label">Step size</p>
+                        <div class="descent-controls is-exact" data-descent-controls>
+                            <button type="button" class="descent-exact" data-descent-exact aria-pressed="true">Exact step</button>
+                            <label class="descent-step">
+                                <span>Fixed</span>
+                                <input type="range" min="0.02" max="1.12" step="0.01" value="0.9" data-descent-step aria-describedby="descent-readout">
+                            </label>
+                            <output class="descent-readout" id="descent-readout" data-descent-readout aria-live="polite"></output>
+                        </div>
+                        <p class="q-facts" data-q-limits></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </dialog>
 </body>
 
 </html>

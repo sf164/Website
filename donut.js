@@ -53,7 +53,12 @@
     var IDLE_SPIN = 0.22;                 // rad/s around its own axis when left alone
     var MAX_SPEED = 14;                   // rad/s cap on a flick
 
-    function mount(root, makeRenderer) {
+    // opts (optional): tilt = resting lean toward the viewer in radians, hint = hint text,
+    // interactive = false for a figure that only turns on its own (no drag, no keys).
+    function mount(root, makeRenderer, opts) {
+        opts = opts || {};
+        var restTilt = opts.tilt != null ? opts.tilt : REST_TILT;
+        var interactive = opts.interactive !== false;
         var img = root.querySelector('img');
         var canvas = document.createElement('canvas');
         canvas.className = 'donut-canvas';
@@ -67,23 +72,25 @@
         if (img) img.draggable = false;
         // Never let the browser start dragging the picture underneath.
         root.addEventListener('dragstart', function (e) { e.preventDefault(); });
-        root.setAttribute('tabindex', '0');
-        root.setAttribute('role', 'img');
-        root.setAttribute('aria-roledescription', 'interactive 3D figure');
-        var label = root.getAttribute('data-label') || (img && img.alt) || '';
-        root.setAttribute('aria-label', (label ? label + '. ' : '') + 'Drag or use the arrow keys to turn it.');
+        if (interactive) {
+            root.setAttribute('tabindex', '0');
+            root.setAttribute('role', 'img');
+            root.setAttribute('aria-roledescription', 'interactive 3D figure');
+            var label = root.getAttribute('data-label') || (img && img.alt) || '';
+            root.setAttribute('aria-label', (label ? label + '. ' : '') + 'Drag or use the arrow keys to turn it.');
+        }
 
         var hint = document.createElement('span');
         hint.className = 'donut-hint';
         hint.setAttribute('aria-hidden', 'true');
-        hint.textContent = 'Drag to turn';
+        hint.textContent = opts.hint || 'Drag to turn';
         root.appendChild(hint);
 
         var reduceMotion = global.matchMedia && global.matchMedia('(prefers-reduced-motion: reduce)');
         function calm() { return !!(reduceMotion && reduceMotion.matches); }
 
         // Orientation and motion
-        var q = qAxis(1, 0, 0, REST_TILT);
+        var q = qAxis(1, 0, 0, restTilt);
         q = qMul(q, qAxis(0, 1, 0, -0.9));
         var mat = new Float32Array(9);
         var wx = 0, wy = 0;              // angular velocity about screen x / y (rad/s)
@@ -105,7 +112,7 @@
         function settle(dt) {
             var m = qToMat3(q, mat);
             var ax = m[3], ay = m[4], az = m[5];                 // where the model's y axis points now
-            var hx = 0, hy = Math.cos(REST_TILT), hz = Math.sin(REST_TILT);
+            var hx = 0, hy = Math.cos(restTilt), hz = Math.sin(restTilt);
             var cx = ay * hz - az * hy, cy = az * hx - ax * hz, cz = ax * hy - ay * hx;
             var s = Math.hypot(cx, cy, cz), c = ax * hx + ay * hy + az * hz;
             var angle = Math.atan2(s, c);
@@ -162,14 +169,16 @@
             wake();
         }
 
-        root.addEventListener('pointerdown', onDown);
-        root.addEventListener('pointermove', onMove);
-        root.addEventListener('pointerup', onUp);
-        root.addEventListener('pointercancel', onUp);
-        root.addEventListener('lostpointercapture', onUp);
+        if (interactive) {
+            root.addEventListener('pointerdown', onDown);
+            root.addEventListener('pointermove', onMove);
+            root.addEventListener('pointerup', onUp);
+            root.addEventListener('pointercancel', onUp);
+            root.addEventListener('lostpointercapture', onUp);
+        }
 
         /* Keyboard: arrows give it a push */
-        root.addEventListener('keydown', function (e) {
+        if (interactive) root.addEventListener('keydown', function (e) {
             var push = 3.2;
             if (e.key === 'ArrowLeft') wy -= push;
             else if (e.key === 'ArrowRight') wy += push;
@@ -268,7 +277,18 @@
             visible = false;
         });
 
-        return { root: root };
+        // Redraw now (for figures whose content changes, e.g. from a slider).
+        function refresh() {
+            if (raf) return;
+            renderer.draw(qToMat3(q, mat));
+            wake();
+        }
+
+        // Read or copy the orientation, so two views of the same figure can hand over smoothly.
+        function getPose() { return q.slice(); }
+        function setPose(p) { q = qNorm(p.slice()); wx = wy = 0; refresh(); }
+
+        return { root: root, refresh: refresh, getPose: getPose, setPose: setPose };
     }
 
     function clamp(v, a, b) { return v < a ? a : v > b ? b : v; }

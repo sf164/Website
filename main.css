@@ -877,6 +877,391 @@ ul {
     margin: 0;
 }
 
+/* ---------- Interactive steepest descent bowl (Year 5) ---------- */
+/* Uses the .donut figure styles above; these are its step-size controls. */
+.descent-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 16px;
+    margin-top: 12px;
+}
+
+.descent-controls[hidden] {
+    display: none;
+}
+
+.descent-exact {
+    appearance: none;
+    padding: 9px 12px;
+    border: 1px solid rgba(236, 235, 231, 0.18);
+    background: var(--surface);
+    color: var(--ink);
+    font: inherit;
+    font-size: var(--step-small);
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease, transform 160ms var(--ease-out);
+}
+
+.descent-exact:active {
+    transform: scale(0.97);
+}
+
+.descent-exact[aria-pressed="true"] {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--on-accent);
+}
+
+.descent-step {
+    flex: 1 1 170px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: var(--step-small);
+    font-weight: 600;
+    color: var(--ink);
+}
+
+.descent-step input {
+    flex: 1 1 auto;
+    min-width: 0;
+    height: 28px;
+    margin: 0;
+    background: transparent;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+.descent-step input::-webkit-slider-runnable-track {
+    height: 4px;
+    background: #2a3340;
+}
+
+.descent-step input::-moz-range-track {
+    height: 4px;
+    background: #2a3340;
+}
+
+.descent-step input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    margin-top: -7px;
+    border: 3px solid #0b0e13;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 1px var(--accent);
+    transition: background-color 200ms ease, box-shadow 200ms ease;
+}
+
+.descent-step input::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    border: 3px solid #0b0e13;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 1px var(--accent);
+}
+
+/* While the exact step is on, the slider is shown as idle. */
+.descent-controls.is-exact .descent-step input::-webkit-slider-thumb {
+    background: var(--muted);
+    box-shadow: 0 0 0 1px var(--muted);
+}
+
+.descent-controls.is-exact .descent-step input::-moz-range-thumb {
+    background: var(--muted);
+    box-shadow: 0 0 0 1px var(--muted);
+}
+
+.descent-readout {
+    flex-basis: 100%;
+    min-height: 1.4em;
+    font-size: var(--step-small);
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+}
+
+/* The figure on the page opens the larger view */
+.bowl-open {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.bowl-open:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+
+.bowl-frame .donut-hint::before {
+    content: "↗";
+    width: auto;
+    height: auto;
+    border: 0;
+    border-radius: 0;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .bowl-frame:hover .donut-hint {
+        border-color: var(--accent);
+    }
+}
+
+/* The larger view: a dialog over the page, like the CV reader */
+.bowlr {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--ink);
+    overflow: hidden;
+}
+
+.bowlr::backdrop {
+    background: transparent;
+}
+
+.bowlr-scrim {
+    position: fixed;
+    inset: 0;
+    background: rgba(11, 14, 19, 0.86);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+}
+
+.bowlr-scroll {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: calc(24px + env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) calc(24px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+}
+
+.bowlr-panel {
+    position: relative;
+    margin: auto;
+    width: min(1120px, 100%);
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    align-items: start;
+    gap: clamp(20px, 3vw, 44px);
+    padding: clamp(16px, 2.4vw, 32px);
+    background: var(--bg);
+    border: 1px solid rgba(236, 235, 231, 0.12);
+}
+
+.bowlr .bowlr-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 3;
+}
+
+.bowlr-stage {
+    transform-origin: 0 0;
+}
+
+.bowlr-side {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.bowlr-eyebrow,
+.bowlr-label {
+    font-size: var(--step-small);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.bowlr-eyebrow {
+    padding-right: 56px;
+    color: var(--accent);
+}
+
+.bowlr-label {
+    margin-bottom: 12px;
+    color: var(--muted);
+}
+
+.bowlr-title {
+    margin-top: 8px;
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: clamp(2.75rem, 2rem + 2.4vw, 4rem);
+    line-height: 0.88;
+    text-transform: uppercase;
+}
+
+.bowlr-lead {
+    margin-top: 14px;
+    max-width: 46ch;
+    font-size: var(--step-small);
+    color: var(--muted);
+}
+
+.bowlr-eqs {
+    display: grid;
+    grid-template-columns: auto auto minmax(0, 1fr);
+    align-items: baseline;
+    gap: 8px 0.4em;
+    padding: 16px 18px;
+    background: var(--surface);
+    font-family: "Cambria Math", Cambria, "STIX Two Text", "Times New Roman", serif;
+    font-size: clamp(1rem, 0.95rem + 0.2vw, 1.125rem);
+    line-height: 1.35;
+}
+
+.bowlr-eqs var,
+.bowlr-lead var,
+.q-name var {
+    font-family: "Cambria Math", Cambria, "STIX Two Text", "Times New Roman", serif;
+    font-style: italic;
+}
+
+.q-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px 22px;
+}
+
+.q-name {
+    font-family: "Cambria Math", Cambria, "STIX Two Text", "Times New Roman", serif;
+    font-size: 1.375rem;
+}
+
+/* The entries of Q, in square brackets */
+.q-matrix {
+    display: inline-grid;
+    grid-template-columns: repeat(2, 4.75em);
+    gap: 6px;
+    padding: 6px 12px;
+    color: var(--muted);
+    background:
+        linear-gradient(currentColor, currentColor) left top / 2px 100% no-repeat,
+        linear-gradient(currentColor, currentColor) left top / 0.5em 2px no-repeat,
+        linear-gradient(currentColor, currentColor) left bottom / 0.5em 2px no-repeat,
+        linear-gradient(currentColor, currentColor) right top / 2px 100% no-repeat,
+        linear-gradient(currentColor, currentColor) right top / 0.5em 2px no-repeat,
+        linear-gradient(currentColor, currentColor) right bottom / 0.5em 2px no-repeat;
+}
+
+.q-matrix input {
+    width: 100%;
+    height: 40px;
+    padding: 0 4px;
+    border: 1px solid rgba(236, 235, 231, 0.18);
+    border-radius: 0;
+    background: var(--surface);
+    color: var(--ink);
+    font: inherit;
+    font-size: 1rem;
+    font-variant-numeric: tabular-nums;
+    text-align: center;
+}
+
+.q-matrix input:focus {
+    border-color: var(--accent);
+}
+
+.q-matrix input[aria-invalid="true"] {
+    border-color: #f08a7a;
+}
+
+/* The two off-diagonal entries are one number: focusing either lights up both */
+.q-matrix:has(.q-off:focus) .q-off {
+    border-color: var(--accent);
+}
+
+.q-presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.q-presets button {
+    padding: 8px 11px;
+    border: 1px solid rgba(236, 235, 231, 0.18);
+    background: transparent;
+    color: var(--ink);
+    font: inherit;
+    font-size: var(--step-small);
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    transition: border-color 200ms ease, color 200ms ease, background-color 200ms ease;
+}
+
+.q-presets button[aria-pressed="true"] {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .q-presets button:hover,
+    .descent-exact[aria-pressed="false"]:hover {
+        background: rgba(236, 235, 231, 0.06);
+    }
+}
+
+.q-facts,
+.q-note {
+    margin-top: 12px;
+    font-size: var(--step-small);
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+}
+
+.q-note {
+    margin-top: 6px;
+    opacity: 0.8;
+}
+
+.q-error {
+    margin-top: 12px;
+    padding: 10px 12px;
+    border-left: 2px solid #f08a7a;
+    background: rgba(240, 138, 122, 0.08);
+    color: #f4b3a8;
+    font-size: var(--step-small);
+}
+
+@media (max-width: 860px) {
+    .bowlr-panel {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .bowlr-stage {
+        width: 100%;
+        max-width: 520px;
+        margin: 0 auto;
+    }
+}
+
 /* ---------- CV folder (front page, About section) ---------- */
 /* A gatefold folder: two doors meet in the middle. Clicking swings them open,
    the CV rises out of the pocket and grows into a full page you can read. */
